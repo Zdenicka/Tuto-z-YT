@@ -1,0 +1,67 @@
+@import './quasar.variables.scss';
+@import '~quasar-styl';
+// @import '~quasar-addon-styl';
+#app, .modal {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  h1 {
+    border-bottom: 1px solid #ddd ;
+    display: inline-block;
+    padding-bottom: 10px;
+    color: aquamarine;
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .modal {
+    width: 600px;
+    padding: 20px;
+    margin: 100px auto;
+    background: white;
+    border-radius: 10px;
+}
+.backdrop {
+    top:0px;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.modal h1 {
+    color:#0ba5cc;
+
+}
+.modal .actions {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+.modal .actions a {
+    color: #333;
+    padding: 8px;
+    border: 1px solid #0ba5cc;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px;
+}
+.modal.sale {
+    background: #b33333;
+    color: aliceblue;
+}
+.modal.sale h1 {
+    color: aliceblue;
+}
+.modal.sale .actions {
+    color: aliceblue;
+}
+.modal.sale .actions a {
+    color: aliceblue;
+    border: 1px solid aliceblue;
+}
+.modal.dark {
+  background: #2c2b2e;
+  color: rgb(254, 252, 255);
+}
