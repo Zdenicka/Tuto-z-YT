@@ -24,6 +24,7 @@ export default {
 
 
 
+
 <!--scoped znamená, že tyhle styly budou fungovat jen v rámci tohodle komponentu, jinak jsou schopny přerazit i styl stejného názvu v nadřazené komponentě - při větším využití může být náročné na načítání stránky
 - scoped nemůžu využít u hlavní/první vue stránky projektu
 druhá varianta je, že tady víc specifikuju při názvu stylu a zaznamenám ho třeba jako ".modal h1" - tím určím, že se vztahuje jen na h1 v komponentě modal
