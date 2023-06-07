@@ -1,6 +1,6 @@
 <template>
    <div class="form">
-        <div class="q-pa-md" style="max-width: 500px">
+        <div class="m-a-xl" style="max-width: 500px">
             <q-form
             class="q-gutter-md"
             >
@@ -43,24 +43,52 @@
                     ]"
                 />
 
-                <div>
-                    <q-checkbox v-model="check" label="Accept terms and conditions" color="teal" />
-                </div>
-            </q-form>
-            <div class="q-pa-md">
-                <div class="q-gutter-sm">
-                <q-checkbox v-model="psi" val="Bohoušek" label="Bohoušek" color="teal4" />
-                <q-checkbox v-model="psi" val="Charles" label="Charles" color="teal4" />
-                <q-checkbox v-model="psi" val="Dorotka" label="Dorotka" color="teal4" />
-                </div>
-            </div>
 
-            
+                <div>
+                    <q-checkbox keep-color v-model="check" label="Accept terms and conditions" color="teal" />
+                </div>
+
+                <div class="q-gutter-sm">
+                    <q-checkbox v-model="psi" val="Bohoušek" label="Bohoušek" color="teal" />
+                    <q-checkbox v-model="psi" val="Charles" label="Charles" color="teal" />
+                    <q-checkbox v-model="psi" val="Dorotka" label="Dorotka" color="teal" />
+                </div>
+
+                <q-input
+                    filled
+                    type="tricks"
+                    v-model= "tempTricks"
+                    label="tricks"
+                    hint="tricks (oddělujte čárkou)"
+                    @keyup="AddTrick"
+                />
+
+                <span 
+                    v-for= "(trick, index) in tricks" 
+                    :key="index"
+                    class="q-gutter-xs">
+                    
+                    <q-btn color="teal-3" 
+                    rounded no-caps
+                    @click= "removeTrick(index)">
+                        {{trick}}
+                    </q-btn>
+                </span>
+                <div>
+                    <q-btn class="glossy" rounded color="teal" label="Create account" />
+                </div> 
+            </q-form>
+        </div>
             <p>email: {{ email }}</p>
             <p>password: {{ password }}</p>
             <p>role: {{ role }}</p>
-            <p>psi: {{psi}}</p> 
-        </div>
+            <p>psi:
+                <ul>
+                    <li v-for= "(pes, index) in psi" :key="index">{{pes}}</li> 
+                </ul>
+            </p>
+            
+        
     </div>
 </template>
 
@@ -74,10 +102,25 @@ export default {
             options: ['Web designer', 'Web developer'],
             check: false,
             psi: [],
-            selection: []
+            tempTricks: '',
+            tricks: []
         }
+    },
+    methods: {
+        AddTrick(e) {
+            if (e.key === ',' && this.tempTricks.length > 1) {
+                if (!this.tricks.includes(this.tempTricks.substring(0, this.tempTricks.length - 1))) {
+                    this.tricks.push(this.tempTricks.substring(0, this.tempTricks.length - 1))
+                }
+                this.tempTricks = ''
+            }
+        },
+        removeTrick(index){
+            this.tricks.splice(this.tricks.indexOf(index), 1);
+        }
+
     }
-    
+
 
 }
 </script>
